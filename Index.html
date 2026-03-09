@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RFP Audit — Find the Fatal Flaw Before They Do</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #D94035;
+    --red-light: #F25C52;
+    --ink: #0F0E0D;
+    --paper: #F5F2EC;
+    --paper-dark: #EAE6DC;
+    --rule: #C8C2B4;
+    --muted: #7A7469;
+    --white: #FFFFFF;
+    --stamp-green: #2A6B3C;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--red); }
+
+  .nav-cta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--red);
+    text-decoration: none;
+    border: 1.5px solid var(--red);
+    padding: 8px 18px;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--red); color: var(--white); }
+
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 96px 48px 72px;
+    position: relative;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+    border: 1px solid var(--rule);
+    padding: 6px 12px;
+    border-radius: 2px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+
+  h1 em { font-style: italic; color: var(--red); }
+
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.65;
+    color: #3D3A35;
+    max-width: 580px;
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+
+  .story {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 64px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story::before {
+    content: '"';
+    font-family: 'DM Serif Display', serif;
+    font-size: 320px;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    top: -60px;
+    left: 24px;
+    line-height: 1;​​​​​​​​​​​​​​​​
 
