@@ -82,7 +82,7 @@
 
   /* HERO */
   .hero {
-    max-width: 860px;
+    max-width: 920px;
     margin: 0 auto;
     padding: 96px 48px 72px;
     position: relative;
@@ -167,6 +167,166 @@
     transition: border-color 0.2s;
   }
   .btn-secondary:hover { border-color: var(--ink); }
+
+  /* REPORT MOCK */
+  .report-mock {
+    margin-top: 64px;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(15,14,13,0.06), 0 1px 3px rgba(15,14,13,0.04);
+  }
+
+  .report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+  }
+
+  .report-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .report-header-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--stamp-green);
+    animation: pulse 2s infinite;
+  }
+
+  .report-header-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .report-score {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .report-score-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .report-score-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--red);
+    background: rgba(217,64,53,0.08);
+    padding: 3px 10px;
+    border-radius: 3px;
+  }
+
+  .report-body { padding: 24px; }
+
+  .report-finding {
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .report-finding:last-child { margin-bottom: 0; }
+
+  .finding-critical { background: rgba(217,64,53,0.06); border-left: 3px solid var(--red); }
+  .finding-weakness { background: rgba(193,155,50,0.06); border-left: 3px solid #C19B32; }
+  .finding-strength { background: rgba(42,107,60,0.06); border-left: 3px solid var(--stamp-green); }
+
+  .finding-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+
+  .finding-critical .finding-badge { background: var(--red); color: var(--white); }
+  .finding-weakness .finding-badge { background: #C19B32; color: var(--white); }
+  .finding-strength .finding-badge { background: var(--stamp-green); color: var(--white); }
+
+  .finding-text {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .finding-text strong {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .finding-text span {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .finding-phase {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .report-footer {
+    padding: 14px 24px;
+    border-top: 1px solid var(--rule);
+    background: var(--paper);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .report-footer-stats {
+    display: flex;
+    gap: 20px;
+  }
+
+  .report-footer-stat {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  .report-footer-stat b {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .report-verdict {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 500;
+  }
 
   /* STORY / QUOTE */
   .story {
@@ -411,6 +571,12 @@
     footer { padding: 32px 24px; }
     .feature-item { grid-template-columns: 1fr; }
     .feature-icon { width: 40px; height: 40px; font-size: 14px; }
+    .report-mock { margin-top: 48px; }
+    .report-header { flex-direction: column; gap: 10px; align-items: flex-start; }
+    .report-finding { grid-template-columns: 1fr; gap: 6px; }
+    .finding-badge { justify-self: start; }
+    .finding-phase { justify-self: start; }
+    .report-footer { flex-direction: column; gap: 12px; align-items: flex-start; }
   }
 </style>
 </head>
@@ -432,6 +598,61 @@
   <div class="hero-actions">
     <a href="#cta" class="btn-primary">Get Early Access</a>
     <a href="#how-it-works" class="btn-secondary">See the 6 Phases</a>
+  </div>
+
+  <div class="report-mock">
+    <div class="report-header">
+      <div class="report-header-left">
+        <div class="report-header-dot"></div>
+        <div class="report-header-title">Audit Complete &mdash; USAF IT Services Recompete</div>
+      </div>
+      <div class="report-score">
+        <span class="report-score-label">Readiness</span>
+        <span class="report-score-value">38 / 100</span>
+      </div>
+    </div>
+    <div class="report-body">
+      <div class="report-finding finding-critical">
+        <div class="finding-badge">Critical</div>
+        <div class="finding-text">
+          <strong>Section L page limit exceeded by 3 pages</strong>
+          <span>Technical Volume is 53 pages against a 50-page limit. Per GAO B-414358, agencies may reject without reading. Non-remediable after submission.</span>
+        </div>
+        <div class="finding-phase">Phase 2</div>
+      </div>
+      <div class="report-finding finding-critical">
+        <div class="finding-badge">Critical</div>
+        <div class="finding-text">
+          <strong>Key Personnel resume missing signed commitment letter</strong>
+          <span>Program Manager resume lists qualifications but no commitment letter attached. FAR 15.305 &mdash; evaluators treat absence as a Section L deficiency.</span>
+        </div>
+        <div class="finding-phase">Phase 3</div>
+      </div>
+      <div class="report-finding finding-weakness">
+        <div class="finding-badge">Weakness</div>
+        <div class="finding-text">
+          <strong>Generic language: "Our team brings a proven methodology"</strong>
+          <span>Appears 4x across Technical Volume. No contract cited, no metric attached. Evaluators flag as unsupported assertion. Replace with named project evidence.</span>
+        </div>
+        <div class="finding-phase">Phase 5</div>
+      </div>
+      <div class="report-finding finding-strength">
+        <div class="finding-badge">Strength</div>
+        <div class="finding-text">
+          <strong>Past performance: 3 Very Relevant references with Exceptional CPARS</strong>
+          <span>All three references match scope, dollar value, and recency window. CPARS ratings verified. Strong discriminator vs. field.</span>
+        </div>
+        <div class="finding-phase">Phase 4</div>
+      </div>
+    </div>
+    <div class="report-footer">
+      <div class="report-footer-stats">
+        <div class="report-footer-stat"><b>2</b> Critical</div>
+        <div class="report-footer-stat"><b>4</b> Weakness</div>
+        <div class="report-footer-stat"><b>3</b> Strength</div>
+      </div>
+      <div class="report-verdict">Not Ready to Submit</div>
+    </div>
   </div>
 </section>
 
