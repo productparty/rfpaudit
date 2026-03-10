@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RFPAudit — Find the Fatal Flaw Before They Do</title>
+<title>RFPAudit â Find the Fatal Flaw Before They Do</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -594,7 +594,7 @@
 <section class="hero">
   <div class="hero-tag">Federal Proposal Intelligence</div>
   <h1>Find the <em>fatal flaw</em> before they do.</h1>
-  <p class="hero-sub">RFPAudit runs your federal proposal through the same adversarial review process used by government Source Selection Evaluation Boards — six phases, every FAR citation, every GAO-documented failure pattern. Before you submit, not after.</p>
+  <p class="hero-sub">RFPAudit runs your federal proposal through the same adversarial review process used by government Source Selection Evaluation Boards â six phases, every FAR citation, every GAO-documented failure pattern. Before you submit, not after.</p>
   <div class="hero-actions">
     <a href="#cta" class="btn-primary">Get Early Access</a>
     <a href="#how-it-works" class="btn-secondary">See the 6 Phases</a>
@@ -659,7 +659,7 @@
 <section class="story">
   <div class="story-inner">
     <blockquote>Evaluators do not read proposals end-to-end. They hunt assigned sections like an encyclopedia, searching for evidence to document findings on their scoresheets. If they have to work to find a strength, they won't find one.</blockquote>
-    <cite>— RFPAudit Framework v2.1</cite>
+    <cite>â RFPAudit Framework v2.1</cite>
   </div>
 </section>
 
@@ -671,7 +671,7 @@
     </div>
     <div>
       <div class="stat-num">14%</div>
-      <div class="stat-label">GAO bid protest sustain rate in FY 2025 — most failures are preventable</div>
+      <div class="stat-label">GAO bid protest sustain rate in FY 2025 â most failures are preventable</div>
     </div>
     <div>
       <div class="stat-num">18</div>
@@ -683,7 +683,7 @@
 <section class="phases" id="how-it-works">
   <div class="section-label">The Framework</div>
   <h2>Six phases. Zero guesswork.</h2>
-  <p class="section-sub">Every phase must be completed in sequence. Skipping a level isn't efficiency — it's missed risk.</p>
+  <p class="section-sub">Every phase must be completed in sequence. Skipping a level isn't efficiency â it's missed risk.</p>
 
   <div class="phase-grid">
     <div class="phase-card">
@@ -729,7 +729,7 @@
       <div class="feature-icon">F</div>
       <div>
         <h3>FAR &amp; GAO Case Law</h3>
-        <p>Every finding is anchored to specific FAR citations, DoD Source Selection Procedures, and GAO bid protest decisions through FY 2025. No generic advice — only regulatory basis.</p>
+        <p>Every finding is anchored to specific FAR citations, DoD Source Selection Procedures, and GAO bid protest decisions through FY 2025. No generic advice â only regulatory basis.</p>
       </div>
     </div>
     <div class="feature-item">
@@ -758,8 +758,37 @@
 
 <section class="cta-section" id="cta">
   <h2>Stop submitting blind.</h2>
-  <p>RFPAudit gives small businesses the same adversarial review that large primes run internally — at a fraction of the cost.</p>
-  <a href="mailto:mike@productparty.us" class="btn-primary">Get Early Access</a>
+  <p>RFPAudit gives small businesses the same adversarial review that large primes run internally â at a fraction of the cost.</p>
+  <div id="waitlist-form-wrap">
+    <form id="waitlist-form" novalidate>
+      <div class="form-row">
+        <input type="text" id="fname" name="fname" placeholder="Your name *" autocomplete="name" />
+        <input type="email" id="email" name="email" placeholder="Work email *" autocomplete="email" />
+      </div>
+      <div class="form-row">
+        <input type="text" id="company" name="company" placeholder="Company *" autocomplete="organization" />
+        <input type="text" id="agency" name="agency" placeholder="Target agency (optional)" />
+      </div>
+      <div class="form-row">
+        <select id="stage" name="stage">
+          <option value="" disabled selected>Proposal stage</option>
+          <option value="pre-rfp">Pre-RFP / Capture</option>
+          <option value="drafting">Drafting proposal</option>
+          <option value="final-review">Final review</option>
+          <option value="post-submission">Post-submission</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <textarea id="context" name="context" placeholder="Anything else we should know? (optional)" rows="3"></textarea>
+      </div>
+      <div id="form-error" class="form-error" style="display:none;"></div>
+      <button type="submit" class="btn-primary">Join the Waitlist</button>
+    </form>
+  </div>
+
+  <div id="waitlist-success" style="display:none;">
+    <p class="success-msg">You’re on the list. We’ll be in touch.</p>
+  </div>
 </section>
 
 <footer>
@@ -767,5 +796,58 @@
   <p>&copy; 2026 RFPAudit. All rights reserved.</p>
 </footer>
 
+<script>
+  (function () {
+    var form = document.getElementById('waitlist-form');
+    var formWrap = document.getElementById('waitlist-form-wrap');
+    var successEl = document.getElementById('waitlist-success');
+    var errorEl = document.getElementById('form-error');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var fname = document.getElementById('fname').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var company = document.getElementById('company').value.trim();
+      var agency = document.getElementById('agency').value.trim();
+      var stage = document.getElementById('stage').value;
+      var context = document.getElementById('context').value.trim();
+
+      if (!fname || !email || !company) {
+        errorEl.textContent = 'Please fill in your name, email, and company.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      errorEl.style.display = 'none';
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      fetch('https://formspree.io/f/YOUR_FORM_ID_HERE', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ fname: fname, email: email, company: company, agency: agency, stage: stage, context: context })
+      })
+        .then(function (res) {
+          if (res.ok) {
+            formWrap.style.display = 'none';
+            successEl.style.display = 'block';
+          } else {
+            return res.json().then(function (data) {
+              throw new Error(data.error || 'Submission failed');
+            });
+          }
+        })
+        .catch(function () {
+          errorEl.innerHTML = 'Something went wrong. Please try again or email us directly.';
+          errorEl.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Join the Waitlist';
+        });
+    });
+  })();
+</script>
 </body>
 </html>
